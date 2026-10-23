@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file alias="bitch_wu.wav">resources/sounds/bitch_wu.wav</file>
+        <file alias="City_sleep.wav">resources/sounds/City_sleep.wav</file>
+        <file alias="City_wu.wav">resources/sounds/City_wu.wav</file>
+        <file alias="Doctor.wav">resources/sounds/Doctor.wav</file>
+        <file alias="doctor_wu.wav">resources/sounds/doctor_wu.wav</file>
+        <file alias="Mafia.wav">resources/sounds/Mafia.wav</file>
+        <file alias="murder.wav">resources/sounds/murder.wav</file>
+        <file alias="Sherif.wav">resources/sounds/Sherif.wav</file>
+        <file alias="sherif_wu.wav">resources/sounds/sherif_wu.wav</file>
+        <file alias="townsman_1.wav">resources/sounds/townsman_1.wav</file>
+        <file alias="townsman_2.wav">resources/sounds/townsman_2.wav</file>
+        <file alias="background_music.wav">resources/sounds/background_music.wav</file>
+        <file alias="bitch_sleep.wav">resources/sounds/bitch_sleep.wav</file>
+        <file>resources/sounds/bitch_wu_v2.wav</file>
+        <file alias="doctor_sleep.wav">resources/sounds/doctor_sleep.wav</file>
+        <file alias="doctor_sleep_bitch_wu.wav">resources/sounds/doctor_sleep_bitch_wu.wav</file>
+        <file alias="mafia_sleep.wav">resources/sounds/mafia_sleep.wav</file>
+        <file alias="mafia_sleep_maniac_wu.wav">resources/sounds/mafia_sleep_maniac_wu.wav</file>
+        <file alias="mainac.wav">resources/sounds/maniac.wav</file>
+        <file alias="maniac_sleep.wav">resources/sounds/maniac_sleep.wav</file>
+        <file alias="mainc_sleep_sherif_wu.wav">resources/sounds/maniac_sleep_sherif_wu.wav</file>
+        <file alias="maniac_wu.wav">resources/sounds/maniac_wu.wav</file>
+        <file alias="sherif_sleep.wav">resources/sounds/sherif_sleep.wav</file>
+        <file alias="sherif_sleep_doctor_wu.wav">resources/sounds/sherif_sleep_doctor_wu.wav</file>
+    </qresource>
+</RCC>
