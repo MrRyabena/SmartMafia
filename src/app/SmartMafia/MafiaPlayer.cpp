@@ -83,14 +83,22 @@ bool MafiaPlayer::playSound(shs::mafia::MafiaActions action)
 
     if (action == ma::NO_ACTION || action > ma::MURDER) return false;
 
-    QString sound_path = QString::fromStdString(std::string(sounds_path) + shs::mafia::mafiaActionNames[static_cast<size_t>(action)] + std::string(file_extension));
-    auto* animation = decreaseBackground();
-    connect(animation, &QPropertyAnimation::finished, this,
-        [this, sound_path]
-            {
-                m_sound->setSource(QUrl{ sound_path });
-                m_sound->play();
-            });
+    const auto sound_path = QString::fromStdString(std::string(sounds_path) + shs::mafia::mafiaActionNames[static_cast<size_t>(action)] + std::string(file_extension));
+
+    if (m_background_sound->volume() != m_background_min_volume)
+    {
+        auto* animation = decreaseBackground();
+        connect(animation, &QPropertyAnimation::finished, this,
+            [this, sound_path]
+                {
+                    m_sound->setSource(QUrl{ sound_path });
+                    m_sound->play();
+                });
+        return true;
+    }
+
+    m_sound->setSource(QUrl{ sound_path });
+    m_sound->play();
 
     return true;
 }
