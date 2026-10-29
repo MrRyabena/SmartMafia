@@ -29,6 +29,7 @@ enum MafiaActions {
     INCREASE_BACKGROUND = 23,
     DECREASE_BACKGROUND = 24,
     FIRST_NIGHT = 25,
+    INTRO = 26,
 
     COUNT
 }

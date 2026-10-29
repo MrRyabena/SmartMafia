@@ -22,6 +22,7 @@ Item {
                 model: [
                 {name: "Low Background", type: MafiaActions.DECREASE_BACKGROUND},
                 {name: "Raise Background", type: MafiaActions.INCREASE_BACKGROUND},
+                {name: "Intro", type: MafiaActions.INTRO},
                 {name: "First Night", type: MafiaActions.FIRST_NIGHT},
                 {name: "Murder", type: MafiaActions.MURDER}
                 ]

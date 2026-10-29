@@ -34,6 +34,7 @@ namespace shs::mafia
         INCREASE_BACKGROUND = 23,
         DECREASE_BACKGROUND = 24,
         FIRST_NIGHT = 25,
+        INTRO = 26,
 
         COUNT
     };
@@ -63,7 +64,8 @@ namespace shs::mafia
         "city_wu",                     // 21
         "murder",                      // 22
         "increase_background",         // 23
-        "decrease_background"          // 24
+        "decrease_background",         // 24
         "first_night",                 // 25
+        "intro",                       // 26
     };
 }
