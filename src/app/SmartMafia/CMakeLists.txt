@@ -35,18 +35,25 @@ qt_add_qml_module(appSmartMafia
         MafiaPlayer.cpp
     RESOURCES
         qml.qrc
+        SOURCES MafiaEngine.h MafiaEngine.cpp
+        SOURCES MafiaManager.h MafiaManager.cpp
 )
 
 
-include(FetchContent)
+# include(FetchContent)
 
-FetchContent_Declare(
-    SHScore
-    URL https://github.com/MrRyabena/SmartHomeSystem/releases/latest/download/SHScore.zip
-)
+# FetchContent_Declare(
+#     SHScore
+#     URL https://github.com/MrRyabena/SmartHomeSystem/releases/latest/download/SHScore.zip
+#     URL https://github.com/MrRyabena/SmartHomeSystem/releases/latest/download/SHS-library_SHS_ARGB.zip
+# )
 
-FetchContent_MakeAvailable(SHScore)
+# FetchContent_MakeAvailable(SHScore)
 
+add_subdirectory(ShsBuild/SHScore/)
+add_subdirectory(ShsBuild/SHS_SmartSpot/)
+add_subdirectory(ShsBuild/SHS_APIids/)
+add_subdirectory(ShsBuild/SHS_Color/src)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -60,6 +67,7 @@ set_target_properties(appSmartMafia PROPERTIES
 )
 
 target_compile_definitions(SHScore PRIVATE SHS_SF_UNUSE_SHS_SETTINGS)
+target_compile_definitions(SHS_SmartSpot PRIVATE SHS_SF_UNUSE_SHS_SETTINGS)
 target_compile_definitions(appSmartMafia PUBLIC SHS_SF_UNUSE_SHS_SETTINGS)
 
 target_include_directories(appSmartMafia
@@ -69,6 +77,7 @@ target_link_libraries(appSmartMafia
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Multimedia
     PRIVATE SHScore
+    PRIVATE SHS_SmartSpot
 )
 
 install(TARGETS appSmartMafia

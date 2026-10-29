@@ -7,8 +7,8 @@ import MafiaPlayer
 
 
 ApplicationWindow {
-    width: 640
-    height: 480
+    width: 740
+    height: 580
     visible: true
 
 

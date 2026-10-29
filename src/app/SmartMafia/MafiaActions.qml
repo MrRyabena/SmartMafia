@@ -3,7 +3,6 @@ import QtQuick
 QtObject {
     
 enum MafiaActions {
-   
     NO_ACTION,
     CITY_SLEEP = 1,
     MAFIA = 2,
@@ -12,15 +11,15 @@ enum MafiaActions {
     MANIAC_WU = 5,
     MANIAC = 6,
     MANIAC_SLEEP = 7,
-    MANIAC_SLEEP_DOCTOR_WU = 8,
-    DOCTOR_WU = 9,
-    DOCTOR = 10,
-    DOCTOR_SLEEP = 11,
-    DOCTOR_SLEEP_SHERIF_WU = 12,
-    SHERIF_WU = 13,
-    SHERIF = 14,
-    SHERIF_SLEEP = 15,
-    SHERIF_SLEEP_BITCH_WU = 16,
+    MANIAC_SLEEP_SHERIFF_WU = 8,
+    SHERIFF_WU = 9,
+    SHERIFF = 10,
+    SHERIFF_SLEEP = 11,
+    SHERIFF_SLEEP_DOCTOR_WU = 12,
+    DOCTOR_WU = 13,
+    DOCTOR = 14,
+    DOCTOR_SLEEP = 15,
+    DOCTOR_SLEEP_BITCH_WU = 16,
     BITCH_WU = 17,
     BITCH_SLEEP = 18,
     TOWNSMAN_1 = 19,
@@ -29,6 +28,9 @@ enum MafiaActions {
     MURDER = 22,
     INCREASE_BACKGROUND = 23,
     DECREASE_BACKGROUND = 24,
+    FIRST_NIGHT = 25,
+    INTRO = 26,
+
     COUNT
 }
 }
