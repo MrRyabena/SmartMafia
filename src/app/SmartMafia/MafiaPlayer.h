@@ -33,6 +33,8 @@ public slots:
     Q_INVOKABLE void onMafiaAction(int action);
 
 signals:
+    void playingStarted(const shs::mafia::MafiaActions action);
+    void playingFinished(const shs::mafia::MafiaActions action);
 
 private:
     QSoundEffect* m_background_sound;
@@ -41,8 +43,12 @@ private:
     double m_background_min_volume = DEFAULT_BACKGROUND_MIN_VOLUME;
     double m_background_max_volume = DEFAULT_BACKGROUND_MAX_VOLUME;
 
+    shs::mafia::MafiaActions m_current_action{};
+
     static constexpr std::string_view sounds_path = "qrc:/sounds/";
     static constexpr std::string_view file_extension = ".wav";
+
+    void onPlayingChanged();
 };
 
 #endif // MAFIAPLAYER_H

@@ -15,6 +15,8 @@ MafiaPlayer::MafiaPlayer(QObject* parent)
     m_background_sound->setVolume(0);
     m_background_sound->play();
 
+    connect(m_sound, &QSoundEffect::playingChanged, this, &MafiaPlayer::onPlayingChanged);
+
     increaseBackground();
 
 }
@@ -83,6 +85,8 @@ bool MafiaPlayer::playSound(shs::mafia::MafiaActions action)
 
     if (action == ma::NO_ACTION || action > ma::MURDER) return false;
 
+    m_current_action = action;
+
     const auto sound_path = QString::fromStdString(std::string(sounds_path) + shs::mafia::mafiaActionNames[static_cast<size_t>(action)] + std::string(file_extension));
 
     if (m_background_sound->volume() != m_background_min_volume)
@@ -101,4 +105,22 @@ bool MafiaPlayer::playSound(shs::mafia::MafiaActions action)
     m_sound->play();
 
     return true;
+}
+
+void MafiaPlayer::onPlayingChanged()
+{
+    if (m_sound->isPlaying())
+    {
+        qDebug() << "playing started";
+        emit playingStarted(m_current_action);
+        return;
+    }
+
+    qDebug() << "playing finished";
+
+    emit playingFinished(m_current_action);
+
+    using ma = shs::mafia::MafiaActions;
+    if (m_current_action == ma::CITY_WU || m_current_action == ma::MURDER) increaseBackground();
+    m_current_action = ma::NO_ACTION;
 }
