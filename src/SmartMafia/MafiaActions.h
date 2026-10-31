@@ -31,10 +31,11 @@ namespace shs::mafia
         TOWNSMAN_2 = 20,
         CITY_WU = 21,
         MURDER = 22,
-        INCREASE_BACKGROUND = 23,
-        DECREASE_BACKGROUND = 24,
-        FIRST_NIGHT = 25,
-        INTRO = 26,
+        INTRO = 23,
+        INCREASE_BACKGROUND = 24,
+        DECREASE_BACKGROUND = 25,
+        FIRST_NIGHT = 26,
+        ON_DAY = 27,
 
         COUNT
     };
@@ -63,9 +64,10 @@ namespace shs::mafia
         "townsman_2",                  // 20
         "city_wu",                     // 21
         "murder",                      // 22
-        "increase_background",         // 23
-        "decrease_background",         // 24
-        "first_night",                 // 25
-        "intro",                       // 26
+        "intro",                       // 23
+        "increase_background",         // 24
+        "decrease_background",         // 25
+        "first_night",                 // 26
+        "on_day",                      // 27
     };
 }

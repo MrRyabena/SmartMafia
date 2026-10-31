@@ -10,6 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 find_package(Qt6 REQUIRED COMPONENTS Multimedia)
+find_package(Qt6 REQUIRED COMPONENTS Network)
 
 qt_standard_project_setup(REQUIRES 6.10)
 
@@ -37,6 +38,7 @@ qt_add_qml_module(appSmartMafia
         qml.qrc
         SOURCES MafiaEngine.h MafiaEngine.cpp
         SOURCES MafiaManager.h MafiaManager.cpp
+        QML_FILES SmartSpotGui.qml
 )
 
 
@@ -66,9 +68,9 @@ set_target_properties(appSmartMafia PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-target_compile_definitions(SHScore PRIVATE SHS_SF_UNUSE_SHS_SETTINGS)
-target_compile_definitions(SHS_SmartSpot PRIVATE SHS_SF_UNUSE_SHS_SETTINGS)
-target_compile_definitions(appSmartMafia PUBLIC SHS_SF_UNUSE_SHS_SETTINGS)
+target_compile_definitions(SHScore PRIVATE SHS_SF_UNUSE_SHS_SETTINGS PRIVATE SHS_SF_DEBUG PRIVATE SHS_QT_FLAG)
+target_compile_definitions(SHS_SmartSpot PRIVATE SHS_SF_UNUSE_SHS_SETTINGS SHS_QT_FLAG)
+target_compile_definitions(appSmartMafia PUBLIC SHS_SF_UNUSE_SHS_SETTINGS SHS_QT_FLAG)
 
 target_include_directories(appSmartMafia
     PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../SmartMafia")
@@ -76,8 +78,10 @@ target_include_directories(appSmartMafia
 target_link_libraries(appSmartMafia
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Multimedia
+    PRIVATE Qt6::Network
     PRIVATE SHScore
     PRIVATE SHS_SmartSpot
+    PRIVATE SHS_Color
 )
 
 install(TARGETS appSmartMafia

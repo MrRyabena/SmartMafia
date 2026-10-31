@@ -83,7 +83,7 @@ bool MafiaPlayer::playSound(shs::mafia::MafiaActions action)
 {
     using ma = shs::mafia::MafiaActions;
 
-    if (action == ma::NO_ACTION || action > ma::MURDER) return false;
+    if (action == ma::NO_ACTION || action > ma::INTRO) return false;
 
     m_current_action = action;
 
@@ -116,11 +116,12 @@ void MafiaPlayer::onPlayingChanged()
         return;
     }
 
-    qDebug() << "playing finished";
+    const auto finished_action = m_current_action;
+    qDebug() << "playing finished: " << shs::mafia::mafiaActionNames[static_cast<int>(finished_action)];
 
-    emit playingFinished(m_current_action);
+    emit playingFinished(finished_action);
 
     using ma = shs::mafia::MafiaActions;
-    if (m_current_action == ma::CITY_WU || m_current_action == ma::MURDER) increaseBackground();
-    m_current_action = ma::NO_ACTION;
+    if (finished_action == ma::CITY_WU || finished_action == ma::MURDER) increaseBackground();
+    // m_current_action = ma::NO_ACTION;
 }

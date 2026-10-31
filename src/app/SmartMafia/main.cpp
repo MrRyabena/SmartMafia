@@ -1,19 +1,17 @@
 #include <QGuiApplication>
+#include <QQmlContext>
 #include <QQmlApplicationEngine>
 
-#include <MafiaActions.h>
-
-#include "MafiaPlayer.h"
+#include "MafiaEngine.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-
-    qmlRegisterType<MafiaPlayer>("MafiaPlayer", 1, 0, "MafiaPlayer");
-    // qmlRegisterType<shs::mafia::MafiaActions>("MafiaActions", 1, 0, "MafiaActions");
+    MafiaEngine mafiaEngine(&app);
 
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextProperty("mafiaEngine", &mafiaEngine);
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

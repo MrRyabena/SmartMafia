@@ -3,12 +3,9 @@ import QtQuick.Controls.Material
 import QtQuick.Window
 import QtQuick.Layouts
 
-import MafiaPlayer
-
-
 ApplicationWindow {
-    width: 740
-    height: 580
+    width: 1080
+    height: 720
     visible: true
 
 
@@ -17,20 +14,28 @@ ApplicationWindow {
     Material.background: "#001219"
     color: Material.background
 
-    ColumnLayout {
-           id: columnLayout
-           anchors.centerIn: parent
-           anchors.fill: parent
-           property int defMargin: 10
-           spacing: defMargin / 2
+    RowLayout {
+        anchors.fill: parent
+        anchors.margins: 10
+        spacing: 10
 
-    MafiaPlayer {
-        id: mafia_player
-    }
+        SmartMafiaGui {
+            id: mafia_gui
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            onMafiaAction: (action) => { mafiaEngine.onMafiaAction(action) }
+        }
 
-    SmartMafiaGui {
-        id: mafia_gui
-        onMafiaAction: (action) => { mafia_player.onMafiaAction(action) }
+        SmartSpotGui {
+            id: spot_1
+            Layout.preferredWidth: implicitWidth
+            Layout.fillHeight: true
+            onColorRequested: (selectedColor) => {
+                    mafiaEngine.setColor(
+                    Math.round(selectedColor.r * 255),
+                    Math.round(selectedColor.g * 255),
+                    Math.round(selectedColor.b * 255))
+            }
+        }
     }
-}
 }

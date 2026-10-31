@@ -5,7 +5,9 @@ import QtQuick.Layouts
 
 Item {
     id: root
-    anchors.fill: parent
+
+    implicitWidth: 420
+    implicitHeight: 500
 
     signal mafiaAction(int actionType)
 
@@ -24,7 +26,8 @@ Item {
                 {name: "Raise Background", type: MafiaActions.INCREASE_BACKGROUND},
                 {name: "Intro", type: MafiaActions.INTRO},
                 {name: "First Night", type: MafiaActions.FIRST_NIGHT},
-                {name: "Murder", type: MafiaActions.MURDER}
+                {name: "Murder", type: MafiaActions.MURDER},
+                {name: "Day", type: MafiaActions.ON_DAY}
                 ]
 
                 Button {
@@ -62,10 +65,10 @@ Item {
                 {name: "Mafia Sleep", type: MafiaActions.MAFIA_SLEEP},
                 {name: "Maniac WU", type: MafiaActions.MANIAC_WU},
                 {name: "Maniac Sleep", type: MafiaActions.MANIAC_SLEEP},
-                {name: "Doctor WU", type: MafiaActions.DOCTOR_WU},
-                {name: "Doctor Sleep", type: MafiaActions.DOCTOR_SLEEP},
                 {name: "Sheriff WU", type: MafiaActions.SHERIFF_WU},
                 {name: "Sheriff Sleep", type: MafiaActions.SHERIFF_SLEEP},
+                {name: "Doctor WU", type: MafiaActions.DOCTOR_WU},
+                {name: "Doctor Sleep", type: MafiaActions.DOCTOR_SLEEP},
                 {name: "Bitch WU", type: MafiaActions.BITCH_WU},
                 {name: "Bitch Sleep", type: MafiaActions.BITCH_SLEEP}
                 ]
