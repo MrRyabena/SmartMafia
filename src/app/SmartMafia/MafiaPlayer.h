@@ -15,7 +15,7 @@ class MafiaPlayer : public QObject
     Q_OBJECT
 public:
     static constexpr auto DEFAULT_BACKGROUND_MIN_VOLUME = 0.01;
-    static constexpr auto DEFAULT_BACKGROUND_MAX_VOLUME = 0.2;
+    static constexpr auto DEFAULT_BACKGROUND_MAX_VOLUME = 0.8;
 
     explicit MafiaPlayer(QObject* parent = nullptr);
 

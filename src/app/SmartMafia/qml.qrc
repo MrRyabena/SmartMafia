@@ -24,5 +24,6 @@
         <file alias="maniac_wu.wav">resources/sounds/maniac_wu.wav</file>
         <file alias="sheriff_sleep.wav">resources/sounds/sheriff_sleep.wav</file>
         <file alias="sheriff_sleep_doctor_wu.wav">resources/sounds/sheriff_sleep_doctor_wu.wav</file>
+        <file alias="intro.wav">resources/sounds/intro.wav</file>
     </qresource>
 </RCC>

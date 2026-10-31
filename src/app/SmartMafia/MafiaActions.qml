@@ -26,10 +26,11 @@ enum MafiaActions {
     TOWNSMAN_2 = 20,
     CITY_WU = 21,
     MURDER = 22,
-    INCREASE_BACKGROUND = 23,
-    DECREASE_BACKGROUND = 24,
-    FIRST_NIGHT = 25,
-    INTRO = 26,
+    INTRO = 23,
+    INCREASE_BACKGROUND = 24,
+    DECREASE_BACKGROUND = 25,
+    FIRST_NIGHT = 26,
+    ON_DAY = 27,
 
     COUNT
 }
